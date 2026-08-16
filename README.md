@@ -92,22 +92,24 @@ count), never values. Same secret-hygiene contract as browser-mcp's action log.
 - ✅ M1–M6 core done: skeleton, query tools, security, reliability, opt-in writes, test suite
 - ⏸️ npm publishing — skipped by decision; add `@scope` name, LICENSE, registry metadata (`server.json` / `glama.json`) if you ever publish
 
-## Install
+## Install (local — no npm publish needed)
 
 ```bash
-npx mysql-mcp install
+cd /path/to/mysql-mcp
+node bin/cli.js install
 ```
 
-This writes the `mysql-mcp` server into `~/.claude/mcp.json` with `${VAR}`
-placeholders — credentials are resolved from your environment, never stored in
-the config file:
+This writes the `mysql-mcp` server into `~/.claude/mcp.json`, pointing at this
+checkout's `index.js` by absolute path (dev-mode install, same pattern as
+browser-mcp's install.sh). Credentials use `${VAR}` placeholders — Claude Code
+resolves them from your environment, never stored in the config file:
 
 ```json
 {
   "mcpServers": {
     "mysql-mcp": {
-      "command": "npx",
-      "args": ["-y", "mysql-mcp@latest"],
+      "command": "node",
+      "args": ["/path/to/mysql-mcp/index.js"],
       "env": {
         "DB_HOST": "${DB_HOST}",
         "DB_PORT": "${DB_PORT}",
