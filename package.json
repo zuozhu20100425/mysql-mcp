@@ -1,0 +1,39 @@
+{
+  "name": "mysql-mcp",
+  "version": "0.1.0",
+  "description": "MySQL MCP — query MySQL tables from Claude Code. Read-only by default, structured query tools, parameterized queries only.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "mysql-mcp": "./bin/cli.js"
+  },
+  "files": [
+    "index.js",
+    "tools.js",
+    "db.js",
+    "bin/",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test test/"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "mysql",
+    "database",
+    "claude",
+    "claude-code",
+    "ai-agent"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.28.0",
+    "mysql2": "^3.11.0"
+  }
+}

@@ -1,0 +1,7 @@
+node_modules/
+.env
+*.log
+
+# 全局 ~/.gitignore_global 忽略了 package-lock.json;
+# 对本库来说 lockfile 是复现性的关键(npm ci),重新纳入版本控制。
+!package-lock.json
